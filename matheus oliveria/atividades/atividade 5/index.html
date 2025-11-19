@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef6ff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2a4b7c;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #2a4b7c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            background: white;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .concluida {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .remover {
+            background-color: red;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Tarefas</h1>
+
+    <input type="text" id="tarefa" placeholder="Digite uma tarefa">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+        function adicionarTarefa() {
+            const texto = document.getElementById("tarefa").value;
+            if (texto === "") return;
+
+            const li = document.createElement("li");
+            li.textContent = texto;
+
+            li.onclick = function () {
+                li.classList.toggle("concluida");
+            };
+
+            const botao = document.createElement("span");
+            botao.textContent = "Remover";
+            botao.className = "remover";
+            botao.onclick = function (event) {
+                event.stopPropagation(); 
+                li.remove();
+            };
+
+            li.appendChild(botao);
+            document.getElementById("lista").appendChild(li);
+
+            document.getElementById("tarefa").value = "";
+        }
+    </script>
+
+</body>
+</html>

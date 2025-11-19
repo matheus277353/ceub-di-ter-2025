@@ -131,6 +131,48 @@ h2 {
     background-position: center;
     margin-bottom: 1em;
 }
+#projects {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .project {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: space-between; /* adiciona o espaço igual entre os elementos */
+    gap: 5%;
+    margin-bottom: 4em;
+  }
+  .project img {
+    width: auto;
+    max-width: 50%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .project h3 {
+    margin-bottom: 1em;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 2em;
+    color: var(--secondary);
+  }
+  .project-description {
+    width: 100%;
+    padding-left: 2em;
+  }
+  .project-description ul {
+    list-style-position: inside;
+  }
+  .project-description ul li {
+    margin-bottom: 1em;
+  }
+  .project-description ul li:last-child {
+    font-weight: bold;
+  }
+
+
 
 #about {
     height: 400px;
@@ -165,4 +207,3 @@ h2 {
     font-size: 0.8em;
     line-height: 0.5;
 }
-
